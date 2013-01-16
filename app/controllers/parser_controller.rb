@@ -11,10 +11,12 @@ class ParserController < ActionController::Base
       file.write(uploaded_pdf.read)
     end
 
-    @output = `pdftotext -raw #{Rails.root.join('public', 'uploads', uploaded_pdf.original_filename)} /dev/stdout`
+    output = `pdftotext -raw #{full_path} /dev/stdout`
     
+    @output = output.html_safe
+
     File.delete full_path
 
-    render 'parser/index'
+    render 'index'
   end
 end
