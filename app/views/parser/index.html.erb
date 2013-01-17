@@ -5,4 +5,8 @@ Selecione o pdf
   <%= submit_tag 'Enviar' %>
 <% end %>
 
-<%= @output %>
+
+<% @output.each do |string| %>
+  <%= string %>
+  </br>
+<% end unless @output.blank? %>
