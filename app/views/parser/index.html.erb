@@ -6,7 +6,10 @@ Selecione o pdf
 <% end %>
 
 
-<% @output.each do |string| %>
-  <%= string %>
-  </br>
-<% end unless @output.blank? %>
+<% @duties.each do |duty| %>
+  <hr>
+  <% duty.to_s.split("\n").each do |attr| %>
+    <%= attr %>
+      </br>
+  <% end %>
+<% end unless @duties.blank? %>
